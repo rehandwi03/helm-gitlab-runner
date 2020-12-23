@@ -12,5 +12,5 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: alicloud-disk-efficiency
+  storageClassName: ontap-k8s
 status: {}

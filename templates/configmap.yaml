@@ -40,9 +40,9 @@ data:
     #EOF
 
     cat >>/home/gitlab-runner/.gitlab-runner/config.toml <<EOF
-            [[runners.kubernetes.volumes.pvc]]
-              name = "gitlab-runner-cache"
-              mount_path = "{{ .Values.runners.cachePath }}"
+            #[[runners.kubernetes.volumes.pvc]]
+              #name = "gitlab-runner-cache"
+              #mount_path = "{{ .Values.runners.cachePath }}"
             [[runners.kubernetes.volumes.host_path]]
               name = "docker"
               mount_path = "/var/run/docker.sock"

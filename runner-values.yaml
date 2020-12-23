@@ -1,0 +1,50 @@
+imagePullPolicy: IfNotPresent
+
+imagePullSecrets: 
+  - name: "docker-secret"
+
+#gitlabUrl: http://gitlab-webservice.repo.svc.cluster.local:8080
+gitlabUrl: https://gitlab-dev.esdm.go.id
+runnerRegistrationToken: "QcPbdhweybgR72aQuQMuzGtDXgy29OThkXUbAptLwc0jPzj5goGsfMVKQogCD5Xd"
+
+terminationGracePeriodSeconds: 3600
+
+concurrent: 10
+
+checkInterval: 30
+
+rbac:
+  create: true
+  clusterWideAccess: false
+  podSecurityPolicy:
+    enabled: false
+    resourceNames:
+    - gitlab-runner
+  imagePullSecrets: [docker-secret]
+
+metrics:
+  enabled: true
+
+runners:
+  config: |
+    [[runners]]
+      [runners.kubernetes]
+        image = "ubuntu:16.04"
+  imagePullSecrets: 
+  - [docker-secret]
+  privileged: true
+  cache: {}
+  builds: {}
+  services: {}
+  helpers: {}
+securityContext:
+  fsGroup: 65533
+  runAsUser: 100
+resources: {}
+affinity: {}
+nodeSelector: {}
+tolerations: []
+hostAliases: []
+podAnnotations: {}
+podLabels: {}
+
