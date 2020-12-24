@@ -14,6 +14,9 @@ init:
   image: busybox
   tag: latest
 
+
+pvc:
+  storageClassName: ontap-k8s
 ## The GitLab Server URL (with protocol) that want to register the runner against
 ## ref: https://docs.gitlab.com/runner/commands/README.html#gitlab-runner-register
 ##

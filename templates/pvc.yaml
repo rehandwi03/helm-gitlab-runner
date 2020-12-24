@@ -12,5 +12,5 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: ontap-k8s
+  storageClassName: {{ .Values.pvc.storageClassName }}
 status: {}
