@@ -9,7 +9,6 @@ image: gitlab/gitlab-runner:alpine-v12.9.0
 ##
 imagePullPolicy: IfNotPresent
 
-## Default container image to use for initcontainer
 init:
   image: busybox
   tag: latest
@@ -72,7 +71,7 @@ rbac:
   ## Run the gitlab-bastion container with the ability to deploy/manage containers of jobs
   ## cluster-wide or only within namespace
   clusterWideAccess: false
-
+  imagePullSecrets: [rey]
   ## Use the following Kubernetes Service Account name if RBAC is disabled in this Helm chart (see rbac.create)
   ##
   # serviceAccountName: default
@@ -93,7 +92,7 @@ runners:
   ##
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   ##
-  #imagePullSecrets: [rey]
+  imagePullSecrets: [rey]
 
   ## Specify the image pull policy: never, if-not-present, always. The cluster default will be used if not set.
   ##
